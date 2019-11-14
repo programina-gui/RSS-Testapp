@@ -10,7 +10,7 @@ import { Feed } from './../datatypes/feed';
 })
 export class ApiService {
 
-  private feedURL = 'https://dev98.de/';
+  private feedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev98.de%2Ffeed%2F';
 
   constructor(
     private http: HttpClient
