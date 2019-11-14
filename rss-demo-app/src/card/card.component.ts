@@ -11,10 +11,10 @@ export class NewsCardComponent implements OnInit {
   @Input() cardContent: FeedEntry;
 
   constructor() {
-    this.cardContent = new FeedEntry();
+
   }
 
-  delete(){
+  delete() {
     console.log('me wants to delete');
   }
 
