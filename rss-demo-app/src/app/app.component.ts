@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   feedContent$: Observable<Object>;
   feed: Feed;
   feedEntry: FeedEntry;
-  displayedCard = `<card [cardContent]={{card}}></card>`;
   cards = [];
 
   constructor(private apiService: ApiService) {
