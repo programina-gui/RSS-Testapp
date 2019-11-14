@@ -2,6 +2,7 @@ import { Feed } from './../datatypes/feed';
 import { ApiService } from './api.service';
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
+import { FeedEntry } from './../datatypes/feed-entry'
 import { Observable, Subject } from 'rxjs';
 
 @Component({
@@ -11,15 +12,19 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'rss-demo-app';
-  feedContent$;
+  // tslint:disable-next-line: ban-types
+  feedContent$: Observable<Object>;
   feed: Feed;
+  feedEntry: FeedEntry;
+  displayedCard = `<card [cardContent]={{card}}></card>`;
+  cards = [];
 
   constructor(private apiService: ApiService) {
 
   }
 
   refresh() {
-    this.apiService.getFeedContent()
+    this.feedContent$ = this.apiService.getFeedContent()
       .pipe(
         switchMap(feedContent => this.mapFeedToModel(feedContent))
       );
@@ -28,13 +33,14 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line: ban-types
   mapFeedToModel(feedContent: any): Observable<Object> {
     console.log('this is the URL output from our feed ', feedContent);
-    this.feed = new Feed();
-    this.feed = feedContent.data;
+    this.feed = feedContent;
+    this.cards = [];
+    this.cards = feedContent.items;
     return new Observable<{}>();
   }
 
   ngOnInit() {
-    this.feedContent$ = this.refresh();
+    this.refresh();
   }
 
 

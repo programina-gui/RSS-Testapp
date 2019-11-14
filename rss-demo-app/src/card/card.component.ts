@@ -1,13 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FeedEntry } from '../datatypes/feed-entry';
 
 @Component({
-  selector: 'app-card',
+  selector: 'card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class NewsCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() cardContent: FeedEntry;
+
+  constructor() {
+    this.cardContent = new FeedEntry();
+  }
+
+  delete(){
+    console.log('me wants to delete');
+  }
 
   ngOnInit() {
   }

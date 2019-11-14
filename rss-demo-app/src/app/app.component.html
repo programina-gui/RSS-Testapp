@@ -4,8 +4,19 @@
   </span>
   <span>
     <mat-icon (click)="refresh()">refresh</mat-icon>
+    <mat-icon *ngIf="feed" [matTooltip]="feed.feed.description" aria-label="Icon that displays a tooltip with info on this news feed" >info</mat-icon>
   </span>
 </mat-toolbar>
+
+
+ <span *ngIf="feed">
+    <span  *ngFor="let card of cards">
+        {{displayedCard}}
+    </span>
+ </span> 
+
+<div *ngIf="feedContent$ | async">
+</div>
 
 <!-- <app-feed-card *ngFor="let feed of feeds" [feed]="feed" ></app-feed-card> -->
 <!-- <app-spinner *ngIf="!feeds.length"></app-spinner> -->

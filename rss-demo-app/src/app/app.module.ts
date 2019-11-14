@@ -1,13 +1,16 @@
+import { ApiService } from './api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
+import { NewsCardComponent } from 'src/card/card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -15,7 +18,7 @@ import { MaterialModule } from 'src/material.module';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
