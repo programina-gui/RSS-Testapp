@@ -10,29 +10,37 @@
 <mat-card>
   <div class="thumbArea">
     <div class="view overlay">
-      <img mat-card-img [src]="cardContent.thumbnail" id="thumbnail" (click)="openDialog()">
+      <a  (click)="openDialog()">
+          <img mat-card-img [src]="cardContent.thumbnail" id="thumbnail">
+      </a>
     </div>
   </div>
 
   <mat-card-content>
 
     <div class="cardHeader">
-      <mat-card-title>
-        <h4>{{cardContent.title}}</h4>
+      <mat-card-title>{{cardContent.title}}
+        <!-- <h4></h4> -->
       </mat-card-title>
-      <mat-icon>share</mat-icon>
+     <button mat-mini-fab (click)="share()"><mat-icon>share</mat-icon></button>
     </div>
 
-    <p>{{cardContent.description | stripHtmlTags}}</p>
+    <p>{{cardDescription | stripHtmlTags}}</p>
 
-    <hr>
+ 
 
     <mat-card-subtitle>
-      <span> {{cardContent.author}}</span>
-      <span> {{cardContent.pubDate | dateAgo}}</span>
+      <div>
+          <span class="subElements"> {{cardContent.author}}</span>
+          <span  class="subElements"> {{cardContent.pubDate | dateAgo}}</span>     
+      </div>
+      
+      <a>
+          <strong (click)="openDialog()">Read more</strong>
+          <mat-icon>double_arrow</mat-icon>
+      </a>
     </mat-card-subtitle>
 
-    <button mat-button (click)="openDialog()">Read more <mat-icon>chevron_right</mat-icon>
-    </button>
+   
   </mat-card-content>
 </mat-card>

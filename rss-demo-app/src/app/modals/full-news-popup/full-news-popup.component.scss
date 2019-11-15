@@ -84,7 +84,7 @@ body {
 .title {
   margin: 0;
   padding: 0 0 10px;
-  color: #333333;
+  color: $accent-color;
   font-size: 26px;
   font-weight: 700;
 }
@@ -101,7 +101,7 @@ body {
   color: #666666;
   font-size: 14px;
   line-height: 1.8em;
-  display: none;
+  // display: none;
 }
 
 .up-title {
@@ -130,4 +130,29 @@ body {
 .post-meta a {
   color: #999999;
   text-decoration: none;
+}
+
+.mat-mini-fab 
+{ 
+  box-shadow: none;
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  top: -20px;
+  right: 0;
+}
+
+.mat-mini-fab:hover
+{ 
+  box-shadow:  0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  top: -20px;
+  right: 0;
+}
+
+.mat-icon {
+  color: black;
+  z-index: 1;
 }

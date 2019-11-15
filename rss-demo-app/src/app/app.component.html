@@ -7,20 +7,36 @@
   </span>
 
   <span class="buttonGroup">
-    <mat-icon (click)="refresh()">refresh</mat-icon>
-    <mat-icon *ngIf="feed" [matTooltip]="feed.feed.description" aria-label="Icon that displays a tooltip with info on this news feed" >info</mat-icon>
+    <!-- <input matInput search> -->
+    <button mat-mini-fab (click)="refresh()" *ngIf="!spinnerState">
+        <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-mini-fab class="btn" type="button" disabled  *ngIf="spinnerState">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="sr-only">Loading...</span>
+    </button>
+<!-- 
+    <button mat-mini-fab class="btn" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="sr-only">Loading...</span>
+    </button> -->
+
+    <button *ngIf="feed" mat-mini-fab [matTooltip]="feed.feed.description" >
+      <mat-icon>info</mat-icon>
+    </button>
+
   </span>
 </mat-toolbar>
 
 
  <span *ngIf="feed">
-    <span *ngFor="let card of cards">
+   <div class="loading-dots" *ngIf="spinnerState"> 
+     <h1 class="dot one">.</h1><h1 class="dot two">.</h1><h1 class="dot three">.</h1>
+   </div>
+    <span *ngFor="let card of cards ">
         <app-card [cardContent]="card"></app-card>
     </span>
  </span> 
 
 <div *ngIf="feedContent$ | async">
 </div>
-
-<!-- <app-feed-card *ngFor="let feed of feeds" [feed]="feed" ></app-feed-card> -->
-<!-- <app-spinner *ngIf="!feeds.length"></app-spinner> -->
