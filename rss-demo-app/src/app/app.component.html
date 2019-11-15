@@ -21,8 +21,8 @@
         <span class="sr-only">Loading...</span>
     </button> -->
 
-    <button *ngIf="feed" mat-mini-fab [matTooltip]="feed.feed.description" >
-      <mat-icon>info</mat-icon>
+    <button *ngIf="feed" mat-mini-fab disabled  >
+      <mat-icon [matTooltip]="feed.feed.description">info</mat-icon>
     </button>
 
   </span>

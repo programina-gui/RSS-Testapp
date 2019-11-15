@@ -1,17 +1,9 @@
-<!-- <mat-card-title>{{cardContent.title}}</mat-card-title>
-<mat-card-subtitle>{{cardContent.author}}</mat-card-subtitle>
-<mat-card-content>{{cardContent.description}}</mat-card-content>
-<div width ="300px">
-<img mat-card-image src="">
-</div>	Card image. Stretches the image to the container width
-<mat-card-actions><mat-icon (click)="delete()">delete</mat-icon></mat-card-actions>	Container for buttons at the bottom of the card
-<mat-card-footer>{{cardContent.pubDate}}</mat-card-footer> -->
 
 <mat-card>
   <div class="thumbArea">
     <div class="view overlay">
-      <a  (click)="openDialog()">
-          <img mat-card-img [src]="cardContent.thumbnail" id="thumbnail">
+      <a>
+          <img mat-card-img (click)="openDialog()" [src]="cardContent.thumbnail" id="thumbnail">
       </a>
     </div>
   </div>
