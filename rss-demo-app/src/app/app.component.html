@@ -1,8 +1,12 @@
 <mat-toolbar>
-  <span  color="primary" class="center">
-    Netz98
+  <span class="center">
+      <span class="title"> 
+          NETZ
+        </span>
+        <img #titleImage  [src]="logo">
   </span>
-  <span>
+
+  <span class="buttonGroup">
     <mat-icon (click)="refresh()">refresh</mat-icon>
     <mat-icon *ngIf="feed" [matTooltip]="feed.feed.description" aria-label="Icon that displays a tooltip with info on this news feed" >info</mat-icon>
   </span>
@@ -11,7 +15,7 @@
 
  <span *ngIf="feed">
     <span *ngFor="let card of cards">
-        <card [cardContent]="card"></card>
+        <app-card [cardContent]="card"></app-card>
     </span>
  </span> 
 

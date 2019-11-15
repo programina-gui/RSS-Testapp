@@ -1,4 +1,25 @@
+@import './../styles.scss';
+
 .center {
     margin: auto;
-  }
+}
+
+.title {
+  color: $font-on-primary;
+  vertical-align: super;
+}
+
+#titleImage {
+    height: 45px;
+    margin-left: 8px;
+}
   
+.buttonGroup > mat-icon {
+ margin-left: 10px;
+ margin-right: 5px;
+ color: $font-on-primary;
+}
+
+.mat-toolbar {
+  background: $primary-color !important;
+}

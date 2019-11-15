@@ -8,41 +8,31 @@
 <mat-card-footer>{{cardContent.pubDate}}</mat-card-footer> -->
 
 <mat-card>
+  <div class="thumbArea">
+    <div class="view overlay">
+      <img mat-card-img [src]="cardContent.thumbnail" id="thumbnail" (click)="openDialog()">
+    </div>
+  </div>
 
-        <!--Card image-->
-        <div class="view overlay waves-light" mdbWavesEffect>
-          <img mat-card-img [src]="cardContent.thumbnail">
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <!--/.Card image-->
-      
-        <!--Card content-->
-        <mat-card-content>
-          <a class="activator px-3 mr-2">
-            <mat-icon fas icon="share-alt"></mat-icon>
-          </a>
-      
-          <!--Title-->
-          <mat-card-title>
-            <h4>Card title</h4>
-          </mat-card-title>
-      
-          <hr>
-      
-          <!--Text-->
-          <mat-card-subtitle>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </mat-card-subtitle>
-      
-          <a class="link-text">
-            <h5 class="waves-light" mdbWavesEffect>Read more
-              <mat-icon fas icon="chevron-right" class="waves-light" mdbWavesEffect></mat-icon>
-            </h5>
-          </a>
-        </mat-card-content>
-        <!--/.Card content-->
-      </mat-card>
-      <!--/.Card-->
-      The dark version
+  <mat-card-content>
+
+    <div class="cardHeader">
+      <mat-card-title>
+        <h4>{{cardContent.title}}</h4>
+      </mat-card-title>
+      <mat-icon>share</mat-icon>
+    </div>
+
+    <p>{{cardContent.description | stripHtmlTags}}</p>
+
+    <hr>
+
+    <mat-card-subtitle>
+      <span> {{cardContent.author}}</span>
+      <span> {{cardContent.pubDate | dateAgo}}</span>
+    </mat-card-subtitle>
+
+    <button mat-button (click)="openDialog()">Read more <mat-icon>chevron_right</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>

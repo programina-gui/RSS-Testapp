@@ -2,8 +2,10 @@ import { Feed } from './../datatypes/feed';
 import { ApiService } from './api.service';
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-import { FeedEntry } from './../datatypes/feed-entry'
+import { FeedEntry } from './../datatypes/feed-entry';
 import { Observable, Subject } from 'rxjs';
+import { DialogData, FullNewsPopupComponent } from './modals/full-news-popup/full-news-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,8 @@ export class AppComponent implements OnInit {
   feed: Feed;
   feedEntry: FeedEntry;
   cards = [];
+  hideCard = false;
+  logo = '../assets/cropped-logo_50px.png';
 
   constructor(private apiService: ApiService) {
 
@@ -36,6 +40,20 @@ export class AppComponent implements OnInit {
     this.cards = [];
     this.cards = feedContent.items;
     return new Observable<{}>();
+  }
+
+
+  toggleCard(hideCard: boolean) {
+    if (!this.hideCard) {
+      this.hideCard = true;
+    } else {
+      this.hideCard = false;
+    }
+  }
+
+  deleteCard(card: FeedEntry) {
+    this.cards = this.cards.filter(fdEntry => fdEntry !== card);
+    // TODO: create pop-up with a warning or a slide that asks you if you want to delete it
   }
 
   ngOnInit() {
