@@ -17,3 +17,7 @@ $font-on-primary: white;
 @mixin icon-color {
     color: $font-on-primary;
 }
+
+a, a:active, a:hover, a:visited, a:link {
+    cursor: pointer;
+}

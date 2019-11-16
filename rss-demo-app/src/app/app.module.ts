@@ -11,6 +11,7 @@ import { FullNewsPopupComponent } from './modals/full-news-popup/full-news-popup
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { AutofocusDirective } from './autofocus.directive';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     FullNewsPopupComponent,
     DateAgoPipe,
     StripHtmlTagsPipe,
-    FilterPipe
+    FilterPipe,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,

@@ -17,13 +17,10 @@ export class AppComponent implements OnInit {
   feed: Feed;
   feedEntry: FeedEntry;
   cards = [];
-  // hideCard = false;
   logo = '../assets/cropped-logo_50px.png';
   spinnerState = false;
   searchText: string;
-  // toggleSearch = false;
-
-  @ViewChild('searchbar', {static: false}) searchbar: ElementRef;
+  isSearchBar = false;
 
   constructor(private apiService: ApiService) {
 
@@ -47,16 +44,27 @@ export class AppComponent implements OnInit {
     return new Observable<{}>();
   }
 
-  // toggleCard(hideCard: boolean) {
-  //   if (!this.hideCard) {
-  //     this.hideCard = true;
-  //   } else {
-  //     this.hideCard = false;
-  //   }
+  toggleSearchBar() {
+    if (!this.isSearchBar) {
+      this.isSearchBar = true;
+    } else {
+      this.isSearchBar = false;
+    }
+  }
+
+  // openDecisionDialog(): Observable<boolean> {
+
+  //   return
+
   // }
 
   deleteCard(card: FeedEntry) {
+
     this.cards = this.cards.filter(fdEntry => fdEntry !== card);
+
+    // this.openDecisionDialog().subscribe(
+    //   () => { this.cards = this.cards.filter(fdEntry => fdEntry !== card); }
+    // );
     // TODO: create pop-up with a warning or a slide that asks you if you want to delete it
   }
 

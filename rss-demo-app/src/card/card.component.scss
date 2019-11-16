@@ -52,19 +52,27 @@
             flex-direction: row;
             justify-content: space-between;
 
-            .mat-mini-fab { 
-              box-shadow: none;
-              background-color: white;
+            .buttonGroup {
+
+                min-width: 90px;
+                margin-left: 15px;
+
+                .mat-mini-fab { 
+                    box-shadow: none;
+                    background-color: white;
+                  }
+      
+                  .mat-mini-fab:hover { 
+                      box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+                      background-color: white;
+                  }
+      
+                  .mat-icon {
+                    color: black;
+                  }
             }
 
-            .mat-mini-fab:hover { 
-                box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-                background-color: white;
-            }
-
-            .mat-icon {
-              color: black;
-            }
+         
         
         }
 
@@ -80,10 +88,6 @@
 
         .subElements {
             margin: 10px;
-        }
-
-        a, a:active, a:hover, a:visited, a:link {
-            cursor: pointer;
         }
   
     }

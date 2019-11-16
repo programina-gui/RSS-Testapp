@@ -13,6 +13,10 @@
     height: 45px;
     margin-left: 8px;
 }
+
+.content {
+  margin-top: 70px;
+}
   
 .buttonGroup {
   .mat-mini-fab 
@@ -26,5 +30,61 @@
 }
 
 .mat-toolbar {
-  background: $primary-color !important;
+  background: $primary-color;
+}
+
+
+
+// .searchBar {
+
+//   input {
+//     width: 90%;
+//     border: none;
+//     margin-left: 20pt;
+//     padding-left: 10pt;
+//   }
+
+//   input.middle:focus {
+//     outline-width: 0;
+// }
+
+//   .mat-toolbar {
+//     background-color: lightgray !important;
+//   }
+
+//   .mat-icon {
+//     color: darkgray;
+//     padding-left:   5px;
+//   }
+// }
+
+
+
+header{
+  position: fixed;
+  top: 0;
+   z-index: 11;
+  transition: all 250ms ease-in-out;
+}
+.main-header{
+  @extend header;
+  &.hidden{
+    opacity: 0;
+  }
+}
+.search-block{
+  width: 0%;
+  right: 0;
+  @extend header;
+  background: #fff;
+  &.active{
+    width: 100%;
+  }
+  .search-control{
+    flex: 1;
+    font-size: 1rem;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+  }
 }

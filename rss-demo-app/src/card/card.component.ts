@@ -1,5 +1,5 @@
 import { DialogData } from './../app/modals/full-news-popup/full-news-popup.component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FeedEntry } from '../datatypes/feed-entry';
 import { MatDialog } from '@angular/material/dialog';
 import { FullNewsPopupComponent } from 'src/app/modals/full-news-popup/full-news-popup.component';
@@ -11,10 +11,13 @@ import { FullNewsPopupComponent } from 'src/app/modals/full-news-popup/full-news
 })
 export class NewsCardComponent implements OnInit  {
 
-  @Input() cardContent: FeedEntry;
+  @Input() feedEntry: FeedEntry;
 
   url: string;
   cardDescription: string;
+
+  @Output()
+  deleteEmitter = new EventEmitter<FeedEntry>();
 
   constructor(public dialog: MatDialog) {
   }
@@ -32,13 +35,13 @@ export class NewsCardComponent implements OnInit  {
   }
 
   delete() {
-    console.log('me wants to delete');
+    this.deleteEmitter.emit(this.feedEntry);
   }
 
 
   openDialog(feedEntry: FeedEntry): void {
     const data: DialogData = {
-       feedEntry: this.cardContent
+       feedEntry: this.feedEntry
     };
 
     const dialogRef = this.dialog.open(FullNewsPopupComponent, { data });
@@ -48,9 +51,9 @@ export class NewsCardComponent implements OnInit  {
   }
 
   ngOnInit() {
-    if (this.cardContent)  {
-      this.cropDescription(this.cardContent);
-      this.url = this.cardContent.link;
+    if (this.feedEntry)  {
+      this.cropDescription(this.feedEntry);
+      this.url = this.feedEntry.link;
     }
   }
 

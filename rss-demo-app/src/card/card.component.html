@@ -3,7 +3,7 @@
   <div class="thumbArea">
     <div class="view overlay">
       <a>
-          <img mat-card-img (click)="openDialog()" [src]="cardContent.thumbnail" id="thumbnail">
+          <img mat-card-img (click)="openDialog()" [src]="feedEntry.thumbnail" id="thumbnail">
       </a>
     </div>
   </div>
@@ -11,10 +11,13 @@
   <mat-card-content>
 
     <div class="cardHeader">
-      <mat-card-title>{{cardContent.title}}
-        <!-- <h4></h4> -->
+      <mat-card-title>
+        {{feedEntry.title}}
       </mat-card-title>
-     <button mat-mini-fab (click)="share()"><mat-icon>share</mat-icon></button>
+      <span class="buttonGroup">
+          <button mat-mini-fab (click)="share()"><mat-icon>share</mat-icon></button>
+          <button mat-mini-fab (click)="delete()"><mat-icon>delete</mat-icon></button>
+      </span>
     </div>
 
     <p>{{cardDescription | stripHtmlTags}}</p>
@@ -23,8 +26,8 @@
 
     <mat-card-subtitle>
       <div>
-          <span class="subElements"> {{cardContent.author}}</span>
-          <span  class="subElements"> {{cardContent.pubDate | dateAgo}}</span>     
+          <span class="subElements"> {{feedEntry.author}}</span>
+          <span  class="subElements"> {{feedEntry.pubDate | dateAgo}}</span>     
       </div>
       
       <a>
