@@ -14,7 +14,7 @@
                                 </p>
                                 <div class="buttonGroup">
                                         <span class="timestamp">
-                                                <i class="fa fa-clock-o"></i> {{feedEntry.pubDate | timeAgo}} 
+                                                <i class="fa fa-clock-o"></i> {{feedEntry.pubDate.toString() | timeAgo}} 
                                         </span>
                                         <span>
                                                <button mat-button (click)="share()" class="goToButton">Go to full article</button>
