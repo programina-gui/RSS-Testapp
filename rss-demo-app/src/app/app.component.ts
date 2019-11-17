@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
   deleteCard(card: FeedEntry) {
      const dialog: DialogConfig = {
       title: 'Delete',
-      content: 'If you press delete, you will never see this post again. ... Just kidding, just hit refresh.',
+      content: 'If you press delete, you will never see this post again. ... Just kidding! It comes back on refresh.',
       close: 'Cancel',
       ok: 'OK'
     };

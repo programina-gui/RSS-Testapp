@@ -1,11 +1,11 @@
-<h2 mat-dialog-title>
+<h1 mat-dialog-title>
     {{dialog.title}}
-</h2>
+</h1>
 
 <mat-dialog-content>
     <small>{{dialog.content}}</small>
 </mat-dialog-content>
-
+<br>
 <mat-dialog-actions>
     <button mat-button (click)="dialogRef.close(false)" >
         {{dialog.close}}
@@ -14,3 +14,4 @@
         {{dialog.ok}}
     </button> 
 </mat-dialog-actions> 
+<br>
