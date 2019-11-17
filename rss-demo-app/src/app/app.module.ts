@@ -9,10 +9,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
 import { FullNewsPopupComponent } from './modals/full-news-popup/full-news-popup.component';
-import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { AutofocusDirective } from './autofocus.directive';
+import {TimeAgoPipe} from 'time-ago-pipe';
+import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -20,10 +21,11 @@ import { AutofocusDirective } from './autofocus.directive';
     AppComponent,
     NewsCardComponent,
     FullNewsPopupComponent,
-    DateAgoPipe,
     StripHtmlTagsPipe,
     FilterPipe,
-    AutofocusDirective
+    AutofocusDirective,
+    TimeAgoPipe,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { AutofocusDirective } from './autofocus.directive';
     FormsModule
   ],
   providers: [ApiService],
-  entryComponents: [ FullNewsPopupComponent ],
+  entryComponents: [ FullNewsPopupComponent, ConfirmDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,12 +4,15 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { FeedEntry } from './models/feed-entry';
 import { Observable } from 'rxjs';
+import { ConfirmDialogComponent, DialogConfig} from './modals/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss', './loading-dots.scss']
 })
+
 export class AppComponent implements OnInit {
   title = 'rss-demo-app';
   // tslint:disable-next-line: ban-types
@@ -21,9 +24,9 @@ export class AppComponent implements OnInit {
   spinnerState = false;
   searchText: string;
   isSearchBar = false;
+  confirm$: Observable<boolean>;
 
-  constructor(private apiService: ApiService) {
-
+  constructor(private apiService: ApiService, public dialog: MatDialog) {
   }
 
 
@@ -52,20 +55,27 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // openDecisionDialog(): Observable<boolean> {
-
-  //   return
-
-  // }
 
   deleteCard(card: FeedEntry) {
+     const dialog: DialogConfig = {
+      title: 'Delete',
+      content: 'If you press delete, you will never see this post again. ... Just kidding! It comes back on refresh.',
+      close: 'Cancel',
+      ok: 'OK'
+    };
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { width: '250px', data: dialog });
+    dialogRef.afterClosed().subscribe( 
+       (result) => {
+      if (!result){
+        console.log('Delete dialog was closed');
+      } else {
+          this.cards = this.cards.filter(fdEntry => fdEntry !== card);
+      };
+      }
+    );
 
-    this.cards = this.cards.filter(fdEntry => fdEntry !== card);
 
-    // this.openDecisionDialog().subscribe(
-    //   () => { this.cards = this.cards.filter(fdEntry => fdEntry !== card); }
-    // );
-    // TODO: create pop-up with a warning or a slide that asks you if you want to delete it
+  
   }
 
   ngOnInit() {

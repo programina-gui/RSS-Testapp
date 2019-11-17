@@ -3,6 +3,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
+
+
 export interface DialogData {
   feedEntry: FeedEntry;
 }
@@ -21,12 +23,14 @@ export class FullNewsPopupComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<FullNewsPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.feedEntry = this.data.feedEntry;
     console.log(this.feedEntry.description);
-    // this.date = this.data.feedEntry.pubDate;
-    // this.day = this.date.getUTCDay();
   }
 
   close(): void {
       this.dialogRef.close();
+  }
+
+  share() {
+    window.open(this.feedEntry.link);
   }
 
   ngOnInit() {

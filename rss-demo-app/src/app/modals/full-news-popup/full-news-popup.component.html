@@ -12,13 +12,12 @@
                                 <p>
                                    {{feedEntry.description | stripHtmlTags}}     
                                 </p>
-                                <div class="post-meta">
+                                <div class="buttonGroup">
                                         <span class="timestamp">
-                                                <i class="fa fa-clock-o"></i> {{feedEntry.pubDate | dateAgo}} 
+                                                <i class="fa fa-clock-o"></i> {{feedEntry.pubDate.toString() | timeAgo}} 
                                         </span>
                                         <span>
-                                                <i class="fa fa-comments"></i> 
-                                                
+                                               <button mat-button (click)="share()" class="goToButton">Go to full article</button>
                                         </span>
                                 </div>
                         </div>

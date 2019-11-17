@@ -4,6 +4,8 @@ import { FeedEntry } from '../models/feed-entry';
 import { MatDialog } from '@angular/material/dialog';
 import { FullNewsPopupComponent } from 'src/app/modals/full-news-popup/full-news-popup.component';
 
+
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -12,7 +14,6 @@ import { FullNewsPopupComponent } from 'src/app/modals/full-news-popup/full-news
 export class NewsCardComponent implements OnInit  {
 
   @Input() feedEntry: FeedEntry;
-
   url: string;
   cardDescription: string;
 
@@ -27,16 +28,15 @@ export class NewsCardComponent implements OnInit  {
   }
 
   cropDescription(feedEntry: FeedEntry) {
-    let s = feedEntry.description;
-    s = s.substring(0, 180);
-    this.cardDescription = s;
+    let descr = feedEntry.description;
+    descr = descr.substring(0, 180);
+    this.cardDescription = descr;
     this.cardDescription = this.cardDescription + '...';
   }
 
   delete() {
     this.deleteEmitter.emit(this.feedEntry);
   }
-
 
   openDialog(): void {
     const data: DialogData = {
@@ -48,6 +48,7 @@ export class NewsCardComponent implements OnInit  {
         console.log('The dialog was closed.');
       });
   }
+
 
   ngOnInit() {
     if (this.feedEntry)  {

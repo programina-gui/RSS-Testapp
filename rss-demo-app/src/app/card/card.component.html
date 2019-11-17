@@ -27,7 +27,7 @@
     <mat-card-subtitle>
       <div>
           <span class="subElements"> {{feedEntry.author}}</span>
-          <span  class="subElements"> {{feedEntry.pubDate | dateAgo}}</span>     
+          <span  class="subElements"> {{feedEntry.pubDate.toString() | timeAgo}}</span>     
       </div>
       
       <a>

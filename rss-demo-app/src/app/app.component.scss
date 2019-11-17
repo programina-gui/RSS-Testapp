@@ -33,6 +33,18 @@
   background: $primary-color;
 }
 
+// @media only screen and (min-width: 768px) {
+//   .mat-toolbar {
+//     width: 100%;
+//   }
+// }
+
+// @media (max-width: 600px) {
+//   md-card {
+//     min-width:17rem;
+//   }
+// }
+
 
 
 header{
@@ -47,6 +59,8 @@ header{
     opacity: 0;
   }
 }
+
+
 .search-block{
   width: 0%;
   right: 0;

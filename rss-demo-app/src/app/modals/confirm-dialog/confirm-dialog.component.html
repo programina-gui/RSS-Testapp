@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>
+    {{dialog.title}}
+</h1>
+
+<mat-dialog-content>
+    <small>{{dialog.content}}</small>
+</mat-dialog-content>
+<br>
+<mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close(false)" >
+        {{dialog.close}}
+    </button> 
+    <button mat-button *ngIf="dialog.ok" class="primaryButton" (click)="dialogRef.close(true)">
+        {{dialog.ok}}
+    </button> 
+</mat-dialog-actions> 
+<br>
