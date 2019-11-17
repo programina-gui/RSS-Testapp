@@ -1,0 +1,153 @@
+@import './../../../styles.scss';
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Montserrat';
+  background: #f2f2f2;
+  font-size: 14px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.column {
+  width: 100%;
+  float: left;  
+}
+
+.title {
+  color: #666666;
+  text-transform: uppercase;
+}
+
+
+
+.newsbox {
+  position: relative;
+  background: #fff;
+  min-width: 270px;
+  height: 470px;
+}
+
+
+
+.post-img{
+  height: 400px;
+  overflow: hidden;
+}
+
+.newsbox img {
+  display: block;
+  width: 100%;
+  
+}
+
+.date {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  background: $primary-color;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  color: $font-on-primary;
+  text-align: center;
+  padding: 12.5px 0;
+}
+
+.post-content {
+  position: absolute;
+  bottom: 0;
+  background: #FFFFFF;
+  padding: 30px;
+}
+
+.category {
+  position: absolute;
+  top: -34px;
+  left: 0;
+  background: $primary-color;
+  padding: 10px 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  padding: 0 0 10px;
+  color: $accent-color;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.sub_title {
+  margin: 0;
+  padding: 0 0 20px;
+  color: $primary-color;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.description {
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.8em;
+}
+
+.up-title {
+  margin: 0 0 15px;
+  color: #666666;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.timestamp {
+  margin: 0 16px 0 0;
+}
+
+.post-meta a {
+  color: #999999;
+  text-decoration: none;
+}
+
+.mat-mini-fab 
+{ 
+  box-shadow: none;
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  top: -20px;
+  right: 0;
+}
+
+.mat-mini-fab:hover
+{ 
+  box-shadow:  0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  top: -20px;
+  right: 0;
+}
+
+.mat-icon {
+  color: black;
+  z-index: 1;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+.goToButton {
+ @include primary-button;
+}

@@ -1,0 +1,87 @@
+@import './../styles.scss';
+
+.center {
+    margin: auto;
+}
+
+.title {
+  color: $font-on-primary;
+  vertical-align: super;
+}
+
+#titleImage {
+    height: 45px;
+    margin-left: 8px;
+}
+
+.content {
+  margin-top: 70px;
+}
+  
+.buttonGroup {
+  .mat-mini-fab 
+  { 
+    @include mini-fab;
+  }
+
+  .mat-icon {
+    @include icon-color;
+  }
+}
+
+.mat-toolbar {
+  background: $primary-color;
+}
+
+// @media only screen and (min-width: 768px) {
+//   .mat-toolbar {
+//     width: 100%;
+//   }
+// }
+
+// @media (max-width: 600px) {
+//   md-card {
+//     min-width:17rem;
+//   }
+// }
+
+
+
+header{
+  position: fixed;
+  top: 0;
+   z-index: 11;
+  transition: all 250ms ease-in-out;
+}
+.main-header{
+  @extend header;
+  &.hidden{
+    opacity: 0;
+  }
+}
+
+
+.search-block{
+  width: 0%;
+  right: 0;
+  @extend header;
+  background: #fff;
+  &.active{
+    width: 100%;
+  }
+  .search-control{
+    flex: 1;
+    font-size: 1rem;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 0.5rem;
+  color: #999999;
+}

@@ -1,0 +1,100 @@
+@import './../../styles.scss';
+
+.mat-card {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    // background-color: lightgray !important;
+
+    display: grid;
+    grid-template-columns: 0.5fr 3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15pt;
+    grid-row-gap: 2pt;
+    grid-template-areas: " thumbArea contentArea ";
+
+    width: 98% !important;
+    overflow: auto;
+
+      
+    .thumbArea {
+        grid-area: thumbArea;
+        justify-self: left;
+        width: 200px;
+        height: 150px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        margin: 0;
+        
+        img {
+            border-radius: 15px 15px 15px 15px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%); 
+        }
+    }
+
+    .mat-card-actions, .mat-card-content, .mat-card-subtitle {
+        display: flex !important;
+    }
+
+    .mat-card-content {
+        grid-area: contentArea !important;
+        min-width: 250px;
+        justify-self: left;
+        
+        flex-direction: column;
+        justify-content: space-between;
+
+        .cardHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .buttonGroup {
+
+                min-width: 90px;
+                margin-left: 15px;
+
+                .mat-mini-fab { 
+                    box-shadow: none;
+                    background-color: white;
+                  }
+      
+                  .mat-mini-fab:hover { 
+                      box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+                      background-color: white;
+                  }
+      
+                  .mat-icon {
+                    color: black;
+                  }
+            }
+
+         
+        
+        }
+
+        .mat-card-subtitle {
+            border-top: 0.5px solid lightgray !important;
+            justify-content: space-between;
+            padding-top: 10px;
+
+            strong {
+                vertical-align: super;
+                margin-left: 5px;
+            }
+        }
+
+        .subElements {
+            margin: 10px;
+        }
+  
+    }
+
+}
+

@@ -1,0 +1,27 @@
+<div class="container">
+        <div class="column" *ngIf="feedEntry">
+                <div class="newsbox">
+                        <button mat-mini-fab (click)="close()"><mat-icon>close</mat-icon></button>
+                        <div class="post-img">
+                                <img [src]="feedEntry.thumbnail" />
+                        </div>
+                        <div class="post-content">
+                                <div class="category">{{feedEntry.pubDate | date}}</div>
+                                <h1 class="title">{{feedEntry.title}}</h1>
+                                <h2 class="sub_title">{{feedEntry.author}}</h2>
+                                <p>
+                                   {{feedEntry.description | stripHtmlTags}}     
+                                </p>
+                                <div class="buttonGroup">
+                                        <span class="timestamp">
+                                                <i class="fa fa-clock-o"></i> {{feedEntry.pubDate | timeAgo}} 
+                                        </span>
+                                        <span>
+                                               <button mat-button (click)="share()" class="goToButton">Go to full article</button>
+                                        </span>
+                                </div>
+                        </div>
+                </div>
+
+        </div>
+</div>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; }
+
+$primary-color: #005097;
+$accent-color: #33B0E0;
+$font-on-primary: white;
+
+@mixin mini-fab {
+    background-color: $accent-color !important; 
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@mixin primary-button {
+    background: $primary-color;
+    color: $font-on-primary;
+}
+
+@mixin icon-color {
+    color: $font-on-primary;
+}
+
+a, a:active, a:hover, a:visited, a:link {
+    cursor: pointer;
+}

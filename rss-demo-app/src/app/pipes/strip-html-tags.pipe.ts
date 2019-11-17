@@ -1,0 +1,37 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'stripHtmlTags'
+})
+export class StripHtmlTagsPipe implements PipeTransform {
+
+  private tagBody = '(?:[^"\'>]|"[^"]*"|\'[^\']*\')*';
+  private tagOrComment: RegExp = new RegExp(
+    '<(?:'
+    // Comment body.
+    + '!--(?:(?:-*[^->])*--+|-?)'
+    // Special "raw text" elements whose content should be elided.
+    + '|script\\b' + this.tagBody + '>[\\s\\S]*?</script\\s*'
+    + '|style\\b' + this.tagBody + '>[\\s\\S]*?</style\\s*'
+    // Regular name
+    + '|/?[a-z]'
+    + this.tagBody
+    + ')>',
+    'gi');
+
+  transform(value: string): string {
+    let oldHtml;
+    do {
+      oldHtml = value;
+      value = value.replace(this.tagOrComment, '');
+    } while (value !== oldHtml);
+
+    let s = value;
+    s = s.substring(0, s.indexOf('...'));
+    value = s;
+    value = value + '...';
+
+    return value.replace(/</g, '&lt;');
+  }
+
+}
