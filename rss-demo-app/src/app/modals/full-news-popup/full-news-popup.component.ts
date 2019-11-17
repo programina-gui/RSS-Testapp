@@ -1,4 +1,4 @@
-import { FeedEntry } from './../../../datatypes/feed-entry';
+import { FeedEntry } from '../../models/feed-entry';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 

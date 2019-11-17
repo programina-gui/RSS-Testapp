@@ -44,10 +44,14 @@
     <h1 class="dot two">.</h1>
     <h1 class="dot three">.</h1>
   </div>
-  <span *ngFor="let card of cards ">
+  <span *ngFor="let card of cards | filter: searchText">
     <app-card [feedEntry]="card" (deleteEmitter)="deleteCard($event)"></app-card>
   </span>
 </div>
 
 <span *ngIf="feedContent$ | async">
 </span>
+
+<footer class="footer">
+  This webapp was designed and built by Amina Belabbes | 2019
+</footer>

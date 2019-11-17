@@ -1,6 +1,6 @@
-import { DialogData } from './../app/modals/full-news-popup/full-news-popup.component';
+import { DialogData } from '../modals/full-news-popup/full-news-popup.component';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FeedEntry } from '../datatypes/feed-entry';
+import { FeedEntry } from '../models/feed-entry';
 import { MatDialog } from '@angular/material/dialog';
 import { FullNewsPopupComponent } from 'src/app/modals/full-news-popup/full-news-popup.component';
 
@@ -22,7 +22,6 @@ export class NewsCardComponent implements OnInit  {
   constructor(public dialog: MatDialog) {
   }
 
-
   share() {
     window.open(this.url);
   }
@@ -39,7 +38,7 @@ export class NewsCardComponent implements OnInit  {
   }
 
 
-  openDialog(feedEntry: FeedEntry): void {
+  openDialog(): void {
     const data: DialogData = {
        feedEntry: this.feedEntry
     };

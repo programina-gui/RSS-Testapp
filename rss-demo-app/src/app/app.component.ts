@@ -1,8 +1,8 @@
-import { Feed } from './../datatypes/feed';
+import { Feed } from './models/feed';
 import { ApiService } from './api.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-import { FeedEntry } from './../datatypes/feed-entry';
+import { FeedEntry } from './models/feed-entry';
 import { Observable } from 'rxjs';
 
 @Component({

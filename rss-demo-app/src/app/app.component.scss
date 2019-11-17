@@ -35,31 +35,6 @@
 
 
 
-// .searchBar {
-
-//   input {
-//     width: 90%;
-//     border: none;
-//     margin-left: 20pt;
-//     padding-left: 10pt;
-//   }
-
-//   input.middle:focus {
-//     outline-width: 0;
-// }
-
-//   .mat-toolbar {
-//     background-color: lightgray !important;
-//   }
-
-//   .mat-icon {
-//     color: darkgray;
-//     padding-left:   5px;
-//   }
-// }
-
-
-
 header{
   position: fixed;
   top: 0;
@@ -87,4 +62,12 @@ header{
     outline: none;
     padding-left: 10px;
   }
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 0.5rem;
+  color: #999999;
 }
