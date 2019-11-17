@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   feed: Feed;
   feedEntry: FeedEntry;
   cards = [];
-  logo = '../assets/cropped-logo_50px.png';
+  logo = 'assets/cropped-logo_50px.png';
   spinnerState = false;
   searchText: string;
   isSearchBar = false;
